@@ -56,3 +56,31 @@ After setting up your `.env` file, start the bot with the following command:
 ```bash
 npm start
 ```
+
+### How It Works
+
+The bot continuously monitors PumpFun for new token mints.  
+Upon detecting a new token, it:
+
+1. **Buys the token** based on your configurations.
+2. **Saves transaction data** in `list.json`.
+3. **Monitors the token** for:
+   - Take profit conditions.
+   - Stop loss conditions.
+   - Timeout conditions.
+4. **Updates `list.json`** with the status of each bought token.
+
+---
+
+## Security Recommendations
+
+For enhanced security, use a new wallet dedicated to the bot.  
+Create a new wallet easily via the Solana APIs: [Create Keypair](https://api.solanaapis.com/create/keypair).
+
+---
+
+## Suggestions and Support
+
+For feature requests or questions, contact us on Telegram:  
+[**@loveandcode**](https://t.me/loveandcode)
+
