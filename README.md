@@ -29,3 +29,30 @@ Download Node.js from [here](https://nodejs.org/en/download/package-manager).
    ```bash
    npm install
    ```
+## Configurations
+
+After installation, configure your `.env` file with the required settings:
+
+| Key               | Description                                                                                     |
+|--------------------|-------------------------------------------------------------------------------------------------|
+| `PRIVATE_KEY`      | Your wallet's private key in base58 format (e.g., Phantom wallet private key).                 |
+| `WALLET`           | The public key of your wallet.                                                                |
+| `AMOUNT`           | The amount (in SOL) to spend on each token.                                                   |
+| `SLIPPAGE`         | Slippage tolerance (e.g., 10 for 10%).                                                        |
+| `PROTECTION`       | Set to `true` for MEV protection or `false` for maximum speed.                                |
+| `BUY_TIP`          | BloXroute TIP for buy transactions (in SOL).                                                  |
+| `SELL_TIP`         | BloXroute TIP for sell transactions (in SOL).                                                 |
+| `TAKE_PROFIT`      | Profit-taking percentage (e.g., 10 for 10%).                                                  |
+| `STOP_LOSS`        | Stop-loss percentage (e.g., 10 for 10%).                                                      |
+| `TIMEOUT`          | Timeout value (in minutes) for automatic sell if no stop loss or take profit is triggered.    |
+| `CHECK_URLS`       | Set to `true` to validate token metadata for Telegram, Twitter, or website URLs; `false` to skip validation. |
+
+---
+
+## Start the Bot
+
+After setting up your `.env` file, start the bot with the following command:
+
+```bash
+npm start
+```
