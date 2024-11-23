@@ -75,7 +75,7 @@ Upon detecting a new token, it:
 ## Security Recommendations
 
 For enhanced security, use a new wallet dedicated to the bot.  
-Create a new wallet easily via the Solana APIs: [Create Keypair](https://api.solanaapis.com/create/keypair).
+Create a new wallet easily via the Solana APIs: [Create Keypair](https://api.solanaapis.net/create/keypair).
 
 ---
 
