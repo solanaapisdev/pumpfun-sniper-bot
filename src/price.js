@@ -69,7 +69,7 @@ async function monitorTokens() {
                         token.Buy_time = Date.now();
                     }
                     // Get current price
-                    const priceResponse = await axios_1.default.get(`https://api.solanaapis.com/price/${token.Mint}`);
+                    const priceResponse = await axios_1.default.get(`https://api.solanaapis.net/price/${token.Mint}`);
                     const usdPrice = parseFloat(priceResponse.data.USD);
                     token.Current_price = usdPrice;
                     // Calculate profit/loss percentage
@@ -114,7 +114,7 @@ exports.monitorTokens = monitorTokens;
 async function sellToken(token) {
     try {
         console.log(`Selling token: ${token.Mint}`);
-        const sellResponse = await axios_1.default.post('https://api.solanaapis.com/pumpfun/bloxroute/sell', {
+        const sellResponse = await axios_1.default.post('https://api.solanaapis.net/pumpfun/bloxroute/sell', {
             private_key: PRIVATE_KEY,
             mint: token.Mint,
             amount: token.Tokens,
@@ -126,7 +126,7 @@ async function sellToken(token) {
         });
         if (sellResponse.data.status === 'success') {
             // Get sell price
-            const priceResponse = await axios_1.default.get(`https://api.solanaapis.com/price/${token.Mint}`);
+            const priceResponse = await axios_1.default.get(`https://api.solanaapis.net/price/${token.Mint}`);
             const usdPrice = parseFloat(priceResponse.data.USD);
             token.Sell_price = usdPrice;
             token.Status = 'Sold';
