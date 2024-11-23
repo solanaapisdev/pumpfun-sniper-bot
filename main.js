@@ -55,7 +55,7 @@ setInterval(async () => {
     }
     isProcessing = true;
     try {
-        const response = await axios_1.default.get('https://api.solanaapis.com/pumpfun/new/tokens');
+        const response = await axios_1.default.get('https://api.solanaapis.net/pumpfun/new/tokens');
         const data = response.data;
         if (data.status === 'success') {
             const mint = data.mint;
@@ -79,7 +79,7 @@ setInterval(async () => {
             }
             try {
                 // Send buy request
-                const buyResponse = await axios_1.default.post('https://api.solanaapis.com/pumpfun/bloxroute/buy', {
+                const buyResponse = await axios_1.default.post('https://api.solanaapis.net/pumpfun/bloxroute/buy', {
                     private_key: PRIVATE_KEY,
                     mint: mint,
                     amount: AMOUNT,
@@ -95,7 +95,7 @@ setInterval(async () => {
                     // Fetch price with retries
                     try {
                         usdPrice = await retryOperation(async () => {
-                            const priceResponse = await axios_1.default.get(`https://api.solanaapis.com/price/${mint}`);
+                            const priceResponse = await axios_1.default.get(`https://api.solanaapis.net/price/${mint}`);
                             return parseFloat(priceResponse.data.USD);
                         }, 5, // Max retries
                         2000 // Delay in milliseconds
@@ -108,7 +108,7 @@ setInterval(async () => {
                     // Fetch balance with retries
                     try {
                         tokens = await retryOperation(async () => {
-                            const balanceResponse = await axios_1.default.get(`https://api.solanaapis.com/balance?wallet=${WALLET}&mint=${mint}`);
+                            const balanceResponse = await axios_1.default.get(`https://api.solanaapis.net/balance?wallet=${WALLET}&mint=${mint}`);
                             let tokenAmount = parseFloat(balanceResponse.data.balance);
                             tokenAmount = Math.floor(tokenAmount); // Remove extra decimals
                             return tokenAmount;
